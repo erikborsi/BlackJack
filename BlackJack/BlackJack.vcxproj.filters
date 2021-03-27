@@ -20,13 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Card.h">
+    <ClInclude Include="CardClass.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Suit.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Value.h">
+    <ClInclude Include="CardLogic.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

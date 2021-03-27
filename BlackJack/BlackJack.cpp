@@ -1,9 +1,32 @@
 #include <iostream>
-#include "Card.h"
-
+#include "CardLogic.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    /*Card myCard;
+
+    myCard.SetSuit("HEARTS");
+    myCard.SetValue(5);
+
+    string something = myCard.GetSuit();
+
+    myCard.PrintInfo();
+
+    cout << something << endl;*/
+    srand(time(NULL));
+
+    InitializeSuitsArray();
+    InitializeNumbersArray();
+
+    InitializePairsFromTheArrays();
+    cout << endl;
+
+    InitializePairsFromTheArrays();
+    cout << endl;
+
+    InitializePairsFromTheArrays();
+    cout << endl;
+    
+    
 }
 
