@@ -1,8 +1,9 @@
 #include <string>
+#include <iostream>
 
 using namespace std;
 
-class Card 
+class Card
 {
 	string suit;
 	int number;
@@ -34,7 +35,7 @@ int Card::GetNumber()
 	return number;
 }
 
-void Card::PrintInfo() 
+void Card::PrintInfo()
 {
 	cout << suit << endl;
 	cout << number << endl;

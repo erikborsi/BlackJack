@@ -1,15 +1,15 @@
-//#include "CardClass.h"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
-string * InitializeSuitsArray() 
+string* InitializeSuitsArray()
 {
 	static string SuitsArray[4] = { "HEARTS", "CLUBS", "DIAMONDS", "SPADES" };
 	return SuitsArray;
 }
 
-int * InitializeNumbersArray()
+int* InitializeNumbersArray()
 {
 	static int NumbersArray[10] = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 	return NumbersArray;
@@ -21,25 +21,20 @@ int RandomSuit()
 	return randomSuit;
 }
 
-int RandomNumber() 
+int RandomNumber()
 {
 	int randomNumber = rand() % 10;
 	return randomNumber;
 }
 
-void InitializePairsFromTheArrays() 
+pair<string, int> InitializePairsFromTheArrays()
 {
 	int randomSuit = RandomSuit();
 	int randomNumber = RandomNumber();
-	string * suitsPointer = InitializeSuitsArray();
+	string* suitsPointer = InitializeSuitsArray();
 	int* numbersPointer = InitializeNumbersArray();
-
 	pair<string, int> CARD;
-
 	CARD.first = suitsPointer[randomSuit];
 	CARD.second = numbersPointer[randomNumber];
-
-	cout << CARD.first << endl;
-	cout << CARD.second << endl;
-
+	return CARD;
 }
