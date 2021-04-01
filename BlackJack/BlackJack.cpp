@@ -1,6 +1,6 @@
 #include <iostream>
 #include <time.h>
-#include "CardWithPairs.h"
+#include "CardsCreation.h"
 
 int main()
 {
@@ -15,9 +15,9 @@ int main()
 
 	cout << something << endl;*/
 	
-	srand((unsigned int)time(NULL));
+	/*srand((unsigned int)time(NULL));*/
 
-	InitializeSuitsArray();
+	/*InitializeSuitsArray();
 	InitializeNumbersArray();
 
 	pair<string, int> card1 = InitializePairsFromTheArrays();
@@ -39,7 +39,28 @@ int main()
 
 	cout << ArrayOfCards[0].first << endl;
 	cout << endl;
-	cout << ArrayOfCards[2].second << endl;
+	cout << ArrayOfCards[2].second << endl;*/
+
+	/*InitialiseSuitsArray();
+	string* heartspointer = DerivedHeartsPointer();
+	string* clubspointer = DerivedClubsPointer();
+	string* diamondpointer = DerivedDiamondPointer();
+	string* spadespointer = DerivedSpadesPointer();
+
+	cout << * heartspointer << endl;
+	cout << * clubspointer << endl;
+	cout << * diamondpointer << endl;
+	cout << * spadespointer << endl;
+
+	InitialiseNumbersArray();
+	int* numberTwoPointer = DerivedPointerTwo();
+	int* numberElevenPointer = DerivedPointerEleven();
+
+	cout << * numberTwoPointer << endl;
+	cout << * numberElevenPointer << endl;*/
+
+	createDeck();
+	
 
 }
 

@@ -20,13 +20,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CardClass.h">
+    <ClInclude Include="CardInitialisation.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="CardWithPairs.h">
+    <ClInclude Include="NOTINUSE_CardWithPairs.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="CardDeck.h">
+    <ClInclude Include="Arrays.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CardsCreation.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

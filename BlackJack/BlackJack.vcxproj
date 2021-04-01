@@ -142,9 +142,10 @@
     <ClCompile Include="BlackJack.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CardClass.h" />
-    <ClInclude Include="CardDeck.h" />
-    <ClInclude Include="CardWithPairs.h" />
+    <ClInclude Include="CardsCreation.h" />
+    <ClInclude Include="CardInitialisation.h" />
+    <ClInclude Include="Arrays.h" />
+    <ClInclude Include="NOTINUSE_CardWithPairs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
