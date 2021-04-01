@@ -15,21 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DeckOfCards.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="BlackJack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CardInitialisation.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NOTINUSE_CardWithPairs.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Arrays.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CardsCreation.h">
+    <ClInclude Include="DeckOfCards.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
