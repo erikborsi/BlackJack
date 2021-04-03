@@ -1,19 +1,11 @@
-#include <string>
-#include <vector>
-#include <iostream>
-#include <ctime>
-#include <algorithm>
-
-using namespace std;
-typedef string* StringPointer;
-typedef int* IntegerPointer;
-typedef pair<string, int> StrAndIntPair;
-typedef vector<pair<string, int>> VectorOfStrAndIntPair;
+#pragma once
+#include "MainHeader.h"
 
 class DeckOfCards
 {
-public:
-	StringPointer InitialiseSuitsArray();
-	IntegerPointer InitialiseNumbersArray();
-	VectorOfStrAndIntPair CreateADeckOfCards();
+protected:
+	inline StringPointer InitialiseSuitsArray();
+	inline IntegerPointer InitialiseNumbersArray();
+	inline VectorOfStrAndIntPair CreateADeckOfCards();
+	inline VectorOfStrAndIntPair ShuffleTheDeck(VectorOfStrAndIntPair DeckForShuffling);
 };

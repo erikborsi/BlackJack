@@ -1,25 +1,34 @@
-#include "DeckOfCards.cpp"
+#include "Game.cpp"
 
-int main() 
+int main()
 {
-	DeckOfCards deckOfCards;
+	/*DeckOfCards deckOfCards;
 
 	VectorOfStrAndIntPair DECK = deckOfCards.CreateADeckOfCards();
 
 	for (int i = 0; i < DECK.size(); i++)
 	{
-		cout << DECK[i].first << " " << DECK[i].second << endl;
+		cout << DECK[i].first << " " << DECK[i].second << " ";
 	}
 
 	cout << endl;
 
-	random_shuffle(DECK.begin(), DECK.end());
+	DECK = deckOfCards.ShuffleTheDeck(DECK);
+
+	cout << endl;
 
 	for (int i = 0; i < DECK.size(); i++)
 	{
-		cout << DECK[i].first << " " << DECK[i].second << endl;
+		cout << DECK[i].first << " " << DECK[i].second << " ";
 	}
 
+	cout << endl;
+	*/
 
-	return 0;
+
+	Game Game;
+	Game.GameMenu();
+
+
+	return 1;
 }
