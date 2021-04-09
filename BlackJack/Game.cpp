@@ -30,6 +30,10 @@ void Game::GameMenu()
 void Game::GameStart()
 {
 	cout << "Game Start" << endl;
+	Player player;
+	Dealer dealer;
+	DeckOfCards deck;
+
 }
 
 void Game::GameReadMe()

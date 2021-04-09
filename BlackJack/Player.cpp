@@ -2,7 +2,6 @@
 
 string Player::GetPlayerName()
 {
-	cout << PlayerName << endl;
 	return PlayerName;
 }
 
@@ -13,7 +12,6 @@ void Player::SetPlayerName(string NameIn)
 
 int Player::GetPlayerScore()
 {
-	cout << PlayerScore << endl;
 	return PlayerScore;
 }
 

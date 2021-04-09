@@ -36,3 +36,19 @@ VectorOfStrAndIntPair DeckOfCards::ShuffleTheDeck(VectorOfStrAndIntPair DeckForS
 	random_shuffle(DeckForShufflingIn.begin(), DeckForShufflingIn.end());
 	return DeckForShufflingIn;
 }
+
+//StrAndIntPair DeckOfCards::CardFromTheBackOfTheDeck(VectorOfStrAndIntPair DeckIn)
+//{
+//	StrAndIntPair CardFromTheBack;
+//	CardFromTheBack = DeckIn.back();
+//	DeckIn.pop_back();
+//	return CardFromTheBack;
+//}
+
+//StrAndIntPair DeckOfCards::FromHandsToTheBackOfTheDeck(VectorOfStrAndIntPair DeckIn)
+//{
+//	VectorOfStrAndIntPair DeckIn;
+//	StrAndIntPair CardToTheBack;
+//
+//	return CardToTheBack;
+//}
