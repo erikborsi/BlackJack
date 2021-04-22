@@ -5,13 +5,14 @@ class Player
 {
 private:
 	string PlayerName;
-	int PlayerScore;
-	VectorOfStrAndIntPair PlayerHands;
-protected:
-	inline string GetPlayerName();
-	inline void SetPlayerName(string NameIn);
-	inline int GetPlayerScore();
-	inline void SetPlayerScore(int ScoreIn);
-	inline VectorOfStrAndIntPair GetPlayerHands();
-	inline void SetPlayerHands(VectorOfStrAndIntPair HandsIn);
+	int PlayerHandValue;
+	VectorOfStrAndIntPair PlayerHand;
+public:
+	string GetPlayerName();
+	void SetPlayerName(string NameIn);
+	int GetPlayerHandValue();
+	void SetPlayerHandsValue(int ValueIn);
+	VectorOfStrAndIntPair GetPlayerHand();
+	void SetPlayerHand(VectorOfStrAndIntPair HandsIn);
+	void PrintPlayerHand();
 };

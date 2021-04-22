@@ -1,5 +1,10 @@
 #include "Game.h"
 
+Player player;
+Dealer dealer;
+DeckOfCards deck;
+Game game;
+
 void Game::GameMenu()
 {
 	int input;
@@ -13,10 +18,10 @@ void Game::GameMenu()
 	switch (input)
 	{
 	case 1:
-		Game::GameStart();
+		game.GameStart();
 		break;
 	case 2:
-		Game::GameReadMe();
+		game.GameReadMe();
 		break;
 	case 3:
 		exit(1);
@@ -30,23 +35,48 @@ void Game::GameMenu()
 void Game::GameStart()
 {
 	cout << "Game Start" << endl;
-	Player player;
-	Dealer dealer;
-	DeckOfCards deck;
+	// INITIALISE THE OBJECTS, USER INPUT FOR USER NAME, SET THE DEALER NAME TO DEALER, 
+	VectorOfStrAndIntPair DECK = deck.CreateADeckOfCards();
+
+	DECK = deck.ShuffleTheDeck(DECK);
+
+	for (int i = 0; i < DECK.size(); i++)
+	{
+		cout << DECK[i].first << " " << DECK[i].second << " ";
+	}
+
+	cout << endl;
+	cout << endl;
+
+	player.SetPlayerHand(deck.GetCard(&DECK));
+	dealer.SetDealerHand(deck.GetCard(&DECK));
+	player.SetPlayerHand(deck.GetCard(&DECK));
+	dealer.SetDealerHand(deck.GetCard(&DECK));
+
+	player.PrintPlayerHand();
+	dealer.PrintDealerHand();
+	
+	cout << endl;
+	cout << endl;
 
 }
 
 void Game::GameReadMe()
 {
-	cout << "Rules of the BlackJack Card Game" << endl;
+	ifstream RulesOfBlackJack("rulesofblackjack.txt");
+
+	if (RulesOfBlackJack.is_open())
+		cout << RulesOfBlackJack.rdbuf();
 }
 
 void Game::GameScores()
 {
 	cout << "Game Scores" << endl;
+	// DISPLAY THE HAND OF THE PLAYER AND DEALER, ADD TOGETHER THE SECOND PART OF THE PAIRS IN THE VECTOR OF HANDS
 }
 
 void Game::GameEnd()
 {
 	cout << "Game End" << endl;
+	// WINNER THEN DELETE OR EMPTY OR ERASE THE HAND VECTORS
 }

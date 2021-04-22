@@ -10,22 +10,33 @@ void Dealer::SetDealerName(string NameIn)
 	DealerName = NameIn;
 }
 
-int Dealer::GetDealerScore()
+int Dealer::GetDealerHandValue()
 {
-	return DealerScore;
+	return DealerHandValue;
 }
 
-void Dealer::SetDealerScore(int ScoreIn)
+void Dealer::SetDealerHandValue(int ValueIn)
 {
-	DealerScore = ScoreIn;
+	DealerHandValue = ValueIn;
 }
 
-VectorOfStrAndIntPair Dealer::GetDealerHands()
+VectorOfStrAndIntPair Dealer::GetDealerHand()
 {
-	return DealerHands;
+	return DealerHand;
 }
 
-void Dealer::SetDealerHands(VectorOfStrAndIntPair HandsIn)
+void Dealer::SetDealerHand(VectorOfStrAndIntPair HandsIn)
 {
-	DealerHands = HandsIn;
+	DealerHand.reserve(DealerHand.size() + HandsIn.size());
+	DealerHand.insert(DealerHand.end(), HandsIn.begin(), HandsIn.end());
+}
+
+void Dealer::PrintDealerHand()
+{
+	cout << "Cards in Dealer Hand: ";
+	for (int i = 0; i < DealerHand.size(); i++)
+	{
+		cout << DealerHand[i].first << " " << DealerHand[i].second << " ";
+	}
+	cout << endl;
 }

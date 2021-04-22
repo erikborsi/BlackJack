@@ -37,18 +37,12 @@ VectorOfStrAndIntPair DeckOfCards::ShuffleTheDeck(VectorOfStrAndIntPair DeckForS
 	return DeckForShufflingIn;
 }
 
-//StrAndIntPair DeckOfCards::CardFromTheBackOfTheDeck(VectorOfStrAndIntPair DeckIn)
-//{
-//	StrAndIntPair CardFromTheBack;
-//	CardFromTheBack = DeckIn.back();
-//	DeckIn.pop_back();
-//	return CardFromTheBack;
-//}
-
-//StrAndIntPair DeckOfCards::FromHandsToTheBackOfTheDeck(VectorOfStrAndIntPair DeckIn)
-//{
-//	VectorOfStrAndIntPair DeckIn;
-//	StrAndIntPair CardToTheBack;
-//
-//	return CardToTheBack;
-//}
+VectorOfStrAndIntPair DeckOfCards::GetCard(VectorOfStrAndIntPairPointer DeckFromIn)
+{
+	VectorOfStrAndIntPair TemporaryVector;
+	StrAndIntPair TemporaryCARD;
+	TemporaryCARD = DeckFromIn->back();
+	TemporaryVector.push_back(TemporaryCARD);
+	DeckFromIn->pop_back();
+	return TemporaryVector;
+}

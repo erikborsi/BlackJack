@@ -1,15 +1,15 @@
 #pragma once
 #include "MainHeader.h"
-#include "Player.cpp"
-#include "Dealer.cpp"
-#include "DeckOfCards.cpp"
+#include "Player.h"
+#include "Dealer.h"
+#include "DeckOfCards.h"
 
-class Game : protected Player, protected Dealer, protected DeckOfCards
+class Game
 {
 public:
-	inline void GameMenu();
-	inline void GameStart();
-	inline void GameReadMe();
-	inline void GameScores();
-	inline void GameEnd();
+	void GameMenu();
+	void GameStart();
+	void GameReadMe();
+	void GameScores();
+	void GameEnd();
 };
