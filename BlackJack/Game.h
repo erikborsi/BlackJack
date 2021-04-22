@@ -7,9 +7,11 @@
 class Game
 {
 public:
-	void GameMenu();
-	void GameStart();
-	void GameReadMe();
-	void GameScores();
-	void GameEnd();
+	void Menu();
+	void ReadMe();
+	void Setup();
+	void Start();
+	void Deal();
+	void ScoresValidatorAndCounter();
+	void End();
 };

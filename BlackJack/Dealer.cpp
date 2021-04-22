@@ -10,6 +10,16 @@ void Dealer::SetDealerName(string NameIn)
 	DealerName = NameIn;
 }
 
+int Dealer::GetDealerScore()
+{
+	return DealerScore;
+}
+
+void Dealer::SetDealerScore(int ScoreIn)
+{
+	DealerScore = ScoreIn;
+}
+
 int Dealer::GetDealerHandValue()
 {
 	return DealerHandValue;
@@ -18,6 +28,16 @@ int Dealer::GetDealerHandValue()
 void Dealer::SetDealerHandValue(int ValueIn)
 {
 	DealerHandValue = ValueIn;
+}
+
+void Dealer::PrintPlayerHandValue()
+{
+	for (int i = 0; i < DealerHand.size(); i++)
+	{
+		DealerHandValue += DealerHand[i].second;
+	}
+	cout << "Card value in Dealer hand: " << DealerHandValue;
+	cout << endl;
 }
 
 VectorOfStrAndIntPair Dealer::GetDealerHand()

@@ -10,14 +10,44 @@ void Player::SetPlayerName(string NameIn)
 	PlayerName = NameIn;
 }
 
+int Player::GetPlayerScore()
+{
+	return PlayerScore;
+}
+
+void Player::SetPlayerScore(int ScoreIn)
+{
+	PlayerScore = ScoreIn;
+}
+
+int Player::GetPlayerMoney()
+{
+	return PlayerMoney;
+}
+
+void Player::SetPlayerMoney(int MoneyIn)
+{
+	PlayerMoney = MoneyIn;
+}
+
 int Player::GetPlayerHandValue()
 {
 	return PlayerHandValue;
 }
 
-void Player::SetPlayerHandsValue(int ValueIn)
+void Player::SetPlayerHandValue(int ValueIn)
 {
 	PlayerHandValue = ValueIn;
+}
+
+void Player::PrintPlayerHandValue()
+{
+	for (int i = 0; i < PlayerHand.size(); i++)
+	{
+		PlayerHandValue += PlayerHand[i].second;
+	}
+	cout << "Card value in Player hand: " << PlayerHandValue;
+	cout << endl;
 }
 
 VectorOfStrAndIntPair Player::GetPlayerHand()
@@ -33,7 +63,7 @@ void Player::SetPlayerHand(VectorOfStrAndIntPair HandsIn)
 
 void Player::PrintPlayerHand()
 {
-	cout << "Cards in Player Hand: " ;
+	cout << "Cards in Player hand: " ;
 	for (int i = 0; i < PlayerHand.size(); i++)
 	{
 		cout << PlayerHand[i].first << " " << PlayerHand[i].second << " ";

@@ -27,7 +27,6 @@ VectorOfStrAndIntPair DeckOfCards::CreateADeckOfCards()
 		}
 		numberPointer[i];
 	}
-
 	return DeckOfCards;
 }
 

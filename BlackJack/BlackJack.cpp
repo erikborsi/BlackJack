@@ -2,10 +2,10 @@
 
 int main()
 {
-	srand(time(nullptr)); //makeing it unpredictable
+	srand(time(nullptr));
 
 	Game Game;
-	Game.GameMenu();
+	Game.Menu();
 
 
 	return 1;

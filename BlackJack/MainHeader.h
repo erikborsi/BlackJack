@@ -5,6 +5,9 @@
 #include <ctime>
 #include <algorithm>
 #include <fstream>
+#include <chrono>
+#include <thread>
+
 
 using namespace std;
 typedef string* StringPointer;
