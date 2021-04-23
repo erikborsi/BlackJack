@@ -11,7 +11,14 @@ public:
 	void ReadMe();
 	void Setup();
 	void Start();
-	void Deal();
-	void ScoresValidatorAndCounter();
-	void End();
+	void Deal(VectorOfStrAndIntPair DeckIn);
+	int Bet();
+	void Options(VectorOfStrAndIntPair DeckIn, int BetIn);
+	void Hit(VectorOfStrAndIntPair DeckIn, int BetIn);
+	void Stand(VectorOfStrAndIntPair DeckIn, int BetIn);
+	void DoubleDown(VectorOfStrAndIntPair DeckIn, int BetIn);
+	void Surrender(VectorOfStrAndIntPair DeckIn, int BetIn);
+	void Decision(VectorOfStrAndIntPair DeckIn);
+	void ValidatorAndCounter(VectorOfStrAndIntPair DeckIn, int BetIn);
+	void End(VectorOfStrAndIntPair DeckIn);
 };

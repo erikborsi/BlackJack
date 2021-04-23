@@ -4,22 +4,23 @@
 class Player
 {
 private:
-	string PlayerName;
-	int PlayerScore;
-	int PlayerMoney;
-	int PlayerHandValue;
-	VectorOfStrAndIntPair PlayerHand;
+	string Name;
+	int Score;
+	int Money;
+	int HandValue;
+	VectorOfStrAndIntPair Hand;
 public:
-	string GetPlayerName();
-	void SetPlayerName(string NameIn);
-	int GetPlayerScore();
-	void SetPlayerScore(int ScoreIn);
-	int GetPlayerMoney();
-	void SetPlayerMoney(int MoneyIn);
-	int GetPlayerHandValue();
-	void SetPlayerHandValue(int ValueIn);
-	void PrintPlayerHandValue();
-	VectorOfStrAndIntPair GetPlayerHand();
-	void SetPlayerHand(VectorOfStrAndIntPair HandsIn);
-	void PrintPlayerHand();
+	string GetName();
+	void SetName(string NameIn);
+	int GetScore();
+	void SetScore(int ScoreIn);
+	int GetMoney();
+	void SetMoney(int MoneyIn);
+	int GetHandValue();
+	void SetHandValue(int ValueIn);
+	void PrintHandValue();
+	VectorOfStrAndIntPair GetHand();
+	void SetHand(VectorOfStrAndIntPair HandsIn);
+	void PrintHand();
+	void DeleteHand();
 };

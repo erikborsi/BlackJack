@@ -1,62 +1,67 @@
 #include "Dealer.h"
 
-string Dealer::GetDealerName()
+string Dealer::GetName()
 {
-	return DealerName;
+	return Name;
 }
 
-void Dealer::SetDealerName(string NameIn)
+void Dealer::SetName(string NameIn)
 {
-	DealerName = NameIn;
+	Name = NameIn;
 }
 
-int Dealer::GetDealerScore()
+int Dealer::GetScore()
 {
-	return DealerScore;
+	return Score;
 }
 
-void Dealer::SetDealerScore(int ScoreIn)
+void Dealer::SetScore(int ScoreIn)
 {
-	DealerScore = ScoreIn;
+	Score = ScoreIn;
 }
 
-int Dealer::GetDealerHandValue()
+int Dealer::GetHandValue()
 {
-	return DealerHandValue;
+	return HandValue;
 }
 
-void Dealer::SetDealerHandValue(int ValueIn)
+void Dealer::SetHandValue(int ValueIn)
 {
-	DealerHandValue = ValueIn;
+	HandValue = ValueIn;
 }
 
-void Dealer::PrintPlayerHandValue()
+void Dealer::PrintHandValue()
 {
-	for (int i = 0; i < DealerHand.size(); i++)
+	for (int i = 0; i < Hand.size(); i++)
 	{
-		DealerHandValue += DealerHand[i].second;
+		HandValue += Hand[i].second;
 	}
-	cout << "Card value in Dealer hand: " << DealerHandValue;
+	cout << "Card value in Dealer hand: " << HandValue;
 	cout << endl;
 }
 
-VectorOfStrAndIntPair Dealer::GetDealerHand()
+VectorOfStrAndIntPair Dealer::GetHand()
 {
-	return DealerHand;
+	return Hand;
 }
 
-void Dealer::SetDealerHand(VectorOfStrAndIntPair HandsIn)
+void Dealer::SetHand(VectorOfStrAndIntPair HandsIn)
 {
-	DealerHand.reserve(DealerHand.size() + HandsIn.size());
-	DealerHand.insert(DealerHand.end(), HandsIn.begin(), HandsIn.end());
+	Hand.reserve(Hand.size() + HandsIn.size());
+	Hand.insert(Hand.end(), HandsIn.begin(), HandsIn.end());
 }
 
-void Dealer::PrintDealerHand()
+void Dealer::PrintHand()
 {
 	cout << "Cards in Dealer Hand: ";
-	for (int i = 0; i < DealerHand.size(); i++)
+	for (int i = 0; i < Hand.size(); i++)
 	{
-		cout << DealerHand[i].first << " " << DealerHand[i].second << " ";
+		cout << Hand[i].first << " " << Hand[i].second << " ";
 	}
 	cout << endl;
+}
+
+void Dealer::DeleteHand()
+{
+	Hand.clear();
 }

@@ -4,19 +4,20 @@
 class Dealer
 {
 private:
-	string DealerName;
-	int DealerScore;
-	int DealerHandValue;
-	VectorOfStrAndIntPair DealerHand;
+	string Name;
+	int Score;
+	int HandValue;
+	VectorOfStrAndIntPair Hand;
 public:
-	string GetDealerName();
-	void SetDealerName(string NameIn);
-	int GetDealerScore();
-	void SetDealerScore(int ScoreIn);
-	int GetDealerHandValue();
-	void SetDealerHandValue(int ValueIn);
-	void PrintPlayerHandValue();
-	VectorOfStrAndIntPair GetDealerHand();
-	void SetDealerHand(VectorOfStrAndIntPair HandsIn);
-	void PrintDealerHand();
+	string GetName();
+	void SetName(string NameIn);
+	int GetScore();
+	void SetScore(int ScoreIn);
+	int GetHandValue();
+	void SetHandValue(int ValueIn);
+	void PrintHandValue();
+	VectorOfStrAndIntPair GetHand();
+	void SetHand(VectorOfStrAndIntPair HandsIn);
+	void PrintHand();
+	void DeleteHand();
 };

@@ -1,72 +1,84 @@
 #include "Player.h"
 
-string Player::GetPlayerName()
+string Player::GetName()
 {
-	return PlayerName;
+	return Name;
 }
 
-void Player::SetPlayerName(string NameIn)
+void Player::SetName(string NameIn)
 {
-	PlayerName = NameIn;
+	Name = NameIn;
 }
 
-int Player::GetPlayerScore()
+int Player::GetScore()
 {
-	return PlayerScore;
+	return Score;
 }
 
-void Player::SetPlayerScore(int ScoreIn)
+void Player::SetScore(int ScoreIn)
 {
-	PlayerScore = ScoreIn;
+	Score = ScoreIn;
 }
 
-int Player::GetPlayerMoney()
+int Player::GetMoney()
 {
-	return PlayerMoney;
-}
-
-void Player::SetPlayerMoney(int MoneyIn)
-{
-	PlayerMoney = MoneyIn;
-}
-
-int Player::GetPlayerHandValue()
-{
-	return PlayerHandValue;
-}
-
-void Player::SetPlayerHandValue(int ValueIn)
-{
-	PlayerHandValue = ValueIn;
-}
-
-void Player::PrintPlayerHandValue()
-{
-	for (int i = 0; i < PlayerHand.size(); i++)
+	if (Money == 0)
 	{
-		PlayerHandValue += PlayerHand[i].second;
+		return 3000;
 	}
-	cout << "Card value in Player hand: " << PlayerHandValue;
+	else 
+	{
+		return Money;
+	}
+}
+
+void Player::SetMoney(int MoneyIn)
+{
+	Money = MoneyIn;
+}
+
+int Player::GetHandValue()
+{
+	return HandValue;
+}
+
+void Player::SetHandValue(int ValueIn)
+{
+	HandValue = ValueIn;
+}
+
+void Player::PrintHandValue()
+{
+	for (int i = 0; i < Hand.size(); i++)
+	{
+		HandValue += Hand[i].second;
+	}
+	cout << "Card value in Player hand: " << HandValue;
 	cout << endl;
 }
 
-VectorOfStrAndIntPair Player::GetPlayerHand()
+VectorOfStrAndIntPair Player::GetHand()
 {
-	return PlayerHand;
+	return Hand;
 }
 
-void Player::SetPlayerHand(VectorOfStrAndIntPair HandsIn)
+void Player::SetHand(VectorOfStrAndIntPair HandsIn)
 {
-	PlayerHand.reserve(PlayerHand.size() + HandsIn.size());
-	PlayerHand.insert(PlayerHand.end(), HandsIn.begin(), HandsIn.end());
+	Hand.reserve(Hand.size() + HandsIn.size());
+	Hand.insert(Hand.end(), HandsIn.begin(), HandsIn.end());
 }
 
-void Player::PrintPlayerHand()
+void Player::PrintHand()
 {
 	cout << "Cards in Player hand: " ;
-	for (int i = 0; i < PlayerHand.size(); i++)
+	for (int i = 0; i < Hand.size(); i++)
 	{
-		cout << PlayerHand[i].first << " " << PlayerHand[i].second << " ";
+		cout << Hand[i].first << " " << Hand[i].second << " ";
 	}
 	cout << endl;
+}
+
+void Player::DeleteHand()
+{
+	Hand.clear();
 }
