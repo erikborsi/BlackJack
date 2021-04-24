@@ -30,16 +30,6 @@ void Dealer::SetHandValue(int ValueIn)
 	HandValue = ValueIn;
 }
 
-void Dealer::PrintHandValue()
-{
-	for (int i = 0; i < Hand.size(); i++)
-	{
-		HandValue += Hand[i].second;
-	}
-	cout << "Card value in Dealer hand: " << HandValue;
-	cout << endl;
-}
-
 VectorOfStrAndIntPair Dealer::GetHand()
 {
 	return Hand;
@@ -56,9 +46,18 @@ void Dealer::PrintHand()
 	cout << "Cards in Dealer Hand: ";
 	for (int i = 0; i < Hand.size(); i++)
 	{
-		cout << Hand[i].first << " " << Hand[i].second << " ";
+		cout << Hand[i].first << " " << Hand[i].second << ", ";
 	}
 	cout << endl;
+}
+
+void Dealer::PrintHandValue()
+{
+	for (int i = 0; i < Hand.size(); i++)
+	{
+		HandValue += Hand[i].second;
+	}
+	cout << "Card value in Dealer hand: " << HandValue << endl;
 }
 
 void Dealer::DeleteHand()

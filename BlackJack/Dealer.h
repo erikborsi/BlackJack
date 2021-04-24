@@ -15,9 +15,9 @@ public:
 	void SetScore(int ScoreIn);
 	int GetHandValue();
 	void SetHandValue(int ValueIn);
-	void PrintHandValue();
 	VectorOfStrAndIntPair GetHand();
 	void SetHand(VectorOfStrAndIntPair HandsIn);
 	void PrintHand();
+	void PrintHandValue();
 	void DeleteHand();
 };

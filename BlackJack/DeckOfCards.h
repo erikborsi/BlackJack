@@ -3,10 +3,12 @@
 
 class DeckOfCards
 {
+private:
+	VectorOfStrAndIntPair Deck;
+	StringPointer SuitsArray();
+	IntegerPointer NumbersArray();
 public:
-	StringPointer InitialiseSuitsArray();
-	IntegerPointer InitialiseNumbersArray();
 	VectorOfStrAndIntPair CreateADeckOfCards();
-	VectorOfStrAndIntPair ShuffleTheDeck(VectorOfStrAndIntPair DeckForShuffling);
-	VectorOfStrAndIntPair GetCard(VectorOfStrAndIntPairPointer DeckFromIn);
+	VectorOfStrAndIntPair ShuffleTheDeck();
+	VectorOfStrAndIntPair GetCard();
 };

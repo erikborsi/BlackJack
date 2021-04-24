@@ -22,19 +22,22 @@ void Player::SetScore(int ScoreIn)
 
 int Player::GetMoney()
 {
-	if (Money == 0)
-	{
-		return 3000;
-	}
-	else 
-	{
-		return Money;
-	}
+	return Money;
 }
 
 void Player::SetMoney(int MoneyIn)
 {
 	Money = MoneyIn;
+}
+
+int Player::GetBet()
+{
+	return Bet;
+}
+
+void Player::SetBet(int BetIn)
+{
+	Bet = BetIn;
 }
 
 int Player::GetHandValue()
@@ -45,16 +48,6 @@ int Player::GetHandValue()
 void Player::SetHandValue(int ValueIn)
 {
 	HandValue = ValueIn;
-}
-
-void Player::PrintHandValue()
-{
-	for (int i = 0; i < Hand.size(); i++)
-	{
-		HandValue += Hand[i].second;
-	}
-	cout << "Card value in Player hand: " << HandValue;
-	cout << endl;
 }
 
 VectorOfStrAndIntPair Player::GetHand()
@@ -70,12 +63,21 @@ void Player::SetHand(VectorOfStrAndIntPair HandsIn)
 
 void Player::PrintHand()
 {
-	cout << "Cards in Player hand: " ;
+	cout << "Cards in Player hand: ";
 	for (int i = 0; i < Hand.size(); i++)
 	{
-		cout << Hand[i].first << " " << Hand[i].second << " ";
+		cout << Hand[i].first << " " << Hand[i].second << ", ";
 	}
 	cout << endl;
+}
+
+void Player::PrintHandValue()
+{
+	for (int i = 0; i < Hand.size(); i++)
+	{
+		HandValue += Hand[i].second;
+	}
+	cout << "Card value in Player hand: " << HandValue << endl;
 }
 
 void Player::DeleteHand()
