@@ -5,7 +5,7 @@ int main()
 	srand(time(nullptr));
 
 	Game Game;
-	Game.Menu();
+	Game.Title();
 
 	return 1;
 }

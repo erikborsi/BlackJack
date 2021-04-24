@@ -7,20 +7,21 @@
 class Game
 {
 public:
+	void Title();
 	void Menu();
 	void ReadMe();
 	void Setup();
 	void Start();
-	void Options();
-	void Print();
-	void Deal();
 	void Bet();
+	void Deal();
+	void Print();
+	void Options();
 	void Hit();
 	void Stand();
 	void DoubleDown();
 	void Surrender();
-	void Decision();
-	void Validator();
+	void DealerDecision();
+	void Winner();
 	void Counter();
 	void End();
 };
