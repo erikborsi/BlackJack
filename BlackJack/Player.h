@@ -4,11 +4,8 @@
 class Player
 {
 private:
-	string Name;
-	int Score;
-	int Money;
-	int Bet;
-	int HandValue;
+	string Name{};
+	int Score{}, Money{}, Bet{}, HandValue{};
 	VectorOfStrAndIntPair Hand;
 public:
 	string GetName();
@@ -24,6 +21,6 @@ public:
 	VectorOfStrAndIntPair GetHand();
 	void SetHand(VectorOfStrAndIntPair HandsIn);
 	void PrintHand();
-	void PrintHandValue();
+	void CountAndPrintHandValue();
 	void DeleteHand();
 };

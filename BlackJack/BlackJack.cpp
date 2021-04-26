@@ -2,10 +2,10 @@
 
 int main()
 {
-	srand(time(nullptr));
+	srand((unsigned int)time(NULL));
 
 	Game Game;
 	Game.Title();
 
-	return 1;
+	return 0;
 }

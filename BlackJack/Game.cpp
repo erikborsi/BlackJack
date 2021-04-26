@@ -4,21 +4,29 @@ Player player;
 Dealer dealer;
 DeckOfCards deck;
 
+
 void Game::Title() 
 {
-	cout << "BlackJack Card Game" << endl;
+	cout << "--------------------------" << endl;
+	cout << "|  BlackJack Card Game   |" << endl;
+	cout << "--------------------------" << endl;
 	Menu();
 }
 
 void Game::Menu()
 {
-	int input;
-	cout << "Menu" << endl;
-	cout << "1. Start game" << endl;
-	cout << "2. Read about the game" << endl;
-	cout << "3. Quit game" << endl;
+	string input{};
+	cout << "--------------------------" << endl;
+	cout << "| Menu                   |" << endl;
+	cout << "| 1. Start game          |" << endl;
+	cout << "| 2. Read about the game |" << endl;
+	cout << "| 3. Quit game           |" << endl;
+	cout << "--------------------------" << endl;
+	cout << "Input: ";
 	cin >> input;
-	switch (input)
+	cin.clear();
+	fflush(stdin);
+	switch (atoi(input.c_str()))
 	{
 	case 1:
 		Setup();
@@ -38,40 +46,27 @@ void Game::Menu()
 
 void Game::ReadMe()
 {
-	int input;
 	ifstream RulesOfBlackJack("rulesofblackjack.txt");
 
 	if (RulesOfBlackJack.is_open())
 		cout << RulesOfBlackJack.rdbuf();
-
-	cout << endl;
-	cout << "Game Menu" << endl;
-	cout << "Choose from the options:" << endl;
-	cout << "1. Start game" << endl;
-	cout << "2. Quit game" << endl;
-	cin >> input;
-	switch (input)
-	{
-	case 1:
-		Setup();
-		break;	
-	case 2:
-		exit(1);
-		break;
-	default:
-		cout << "Wrong input!" << endl;
-		Menu();
-		break;
-	}
+	Menu();
 }
 
 void Game::Setup() 
 {
-	string input;
-	cout << "Name:" << endl;
-	cin >> input;
-	player.SetName(input);
+	string name;
+	cout << "Name: ";
+	cin >> name;
+	cin.clear();
+	fflush(stdin);
+	player.SetName(name);
 	dealer.SetName("Dealer");
+	player.SetMoney(3000);
+	cout << "--------------------------" << endl;
+	cout << "| Your name is: " << player.GetName() << endl;
+	cout << "| Your bank is: " << player.GetMoney() << endl;
+	cout << "--------------------------" << endl;
 	Start();
 }
 
@@ -85,42 +80,60 @@ void Game::Start()
 
 void Game::Bet() 
 {
-	int input;
-	cout << "Bet:" << endl;
-	cin >> input;
-	player.SetBet(input);
+	string bet{};
+	cout << "Bet: ";
+	cin >> bet;
+	cin.clear();
+	fflush(stdin);
+	player.SetBet(atoi(bet.c_str()));
+	player.SetMoney(player.GetMoney() - player.GetBet());
+	cout << "--------------------------" << endl;
+	cout << "| Your bet is: " << player.GetBet() << endl;
+	cout << "| Your bank is: " << player.GetMoney() << endl;
+	cout << "--------------------------" << endl;
 }
 
 void Game::Deal()
 {
-	cout << "Deal:" << endl;
+	string deal{};
+	cout << "--------------------------" << endl;
+	cout << "| Deal:                  |" << endl;
+	cout << "--------------------------" << endl;
+	system("pause");
 	player.SetHand(deck.GetCard());
 	player.SetHand(deck.GetCard());
 	dealer.SetHand(deck.GetCard());
 	dealer.SetHand(deck.GetCard());
+	cin.clear();
+	fflush(stdin);
 	Print();
 	Options();
 }
 
 void Game::Print()
 {
-	cout << "Hands:" << endl;
+	cout << "--------------------------" << endl;
+	cout << "| Hands:                 |" << endl;
+	cout << "--------------------------" << endl;
 	player.PrintHand();
-	player.PrintHandValue();
 	dealer.PrintHand();
-	dealer.PrintHandValue();
 }
 
 void Game::Options()
 {
-	int input{};
-	cout << "Options: " << endl;
-	cout << "1. Hit" << endl;
-	cout << "2. Stand" << endl;
-	cout << "3. Double Down" << endl;
-	cout << "4. Surrender" << endl;
+	string input{};
+	cout << "--------------------------" << endl;
+	cout << "| Options:               |" << endl;
+	cout << "| 1. Hit                 |" << endl;
+	cout << "| 2. Stand               |" << endl;
+	cout << "| 3. Double Down         |" << endl;
+	cout << "| 4. Surrender           |" << endl;
+	cout << "--------------------------" << endl;
+	cout << "Input: ";
 	cin >> input;
-	switch (input)
+	cin.clear();
+	fflush(stdin);
+	switch (atoi(input.c_str()))
 	{
 	case 1:
 		Hit();
@@ -143,37 +156,40 @@ void Game::Options()
 
 void Game::Hit()
 {
-	cout << "Hit:" << endl;
-	DealerDecision();
-	Print();
-	Winner();
-	Counter();
-	End();
+	cout << "--------------------------" << endl;
+	cout << "| Hit:                   |" << endl;
+	cout << "--------------------------" << endl;
+	player.SetHand(deck.GetCard());
+	Sequence();
 }
 
 void Game::Stand()
 {
-	cout << "Stand:" << endl;
-	DealerDecision();
-	Print();
-	Winner();
-	Counter();
-	End();
+	cout << "--------------------------" << endl;
+	cout << "| Stand:                 |" << endl;
+	cout << "--------------------------" << endl;
+	Sequence();
 }
 
 void Game::DoubleDown()
 {
-	cout << "Double Down:" << endl;
-	DealerDecision();
-	Print();
-	Winner();
-	Counter();
-	End();
+	cout << "--------------------------" << endl;
+	cout << "| Double Down:           |" << endl;
+	cout << "--------------------------" << endl;
+	player.SetHand(deck.GetCard());
+	Sequence();
 }
 
 void Game::Surrender()
 {
-	cout << "Surrender" << endl;
+	cout << "--------------------------" << endl;
+	cout << "| Surrender:             |" << endl;
+	cout << "--------------------------" << endl;
+	Sequence();
+}
+
+void Game::Sequence()
+{
 	DealerDecision();
 	Print();
 	Winner();
@@ -188,22 +204,33 @@ void Game::DealerDecision()
 
 void Game::Winner()
 {
-	cout << "Winner:" << endl;
-
+	cout << "--------------------------" << endl;
+	cout << "| Winner:                |" << endl;
+	cout << "--------------------------" << endl;
+	player.CountAndPrintHandValue();
+	dealer.CountAndPrintHandValue();
 }
 
 void Game::Counter() 
 {
-	cout << "Counter:" << endl;
+	cout << "--------------------------" << endl;
+	cout << "| Counter:               |" << endl;
+	cout << "--------------------------" << endl;
 }
 
 void Game::End()
 {
-	int input{};
-	cout << "End:" << endl;
-	cout << "1. New Deal" << endl;
-	cout << "2. Menu" << endl;
-	switch (input)
+	string input{};
+	cout << "--------------------------" << endl;
+	cout << "| End:                   |" << endl;
+	cout << "| 1. New Deal            |" << endl;
+	cout << "| 2. Menu                |" << endl;
+	cout << "--------------------------" << endl;
+	cout << "Input: ";
+	cin >> input;
+	cin.clear();
+	fflush(stdin);
+	switch (atoi(input.c_str()))
 	{
 	case 1:
 		Start();

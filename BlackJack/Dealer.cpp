@@ -43,21 +43,21 @@ void Dealer::SetHand(VectorOfStrAndIntPair HandsIn)
 
 void Dealer::PrintHand()
 {
-	cout << "Cards in Dealer Hand: ";
-	for (int i = 0; i < Hand.size(); i++)
+	cout << "| Cards in Dealer Hand: ";
+	for (unsigned int i = 0; i < Hand.size(); i++)
 	{
 		cout << Hand[i].first << " " << Hand[i].second << ", ";
 	}
 	cout << endl;
 }
 
-void Dealer::PrintHandValue()
+void Dealer::CountAndPrintHandValue()
 {
-	for (int i = 0; i < Hand.size(); i++)
+	for (unsigned int i = 0; i < Hand.size(); i++)
 	{
 		HandValue += Hand[i].second;
 	}
-	cout << "Card value in Dealer hand: " << HandValue << endl;
+	cout << "| Card value in Dealer hand: " << HandValue << " |" << endl;
 }
 
 void Dealer::DeleteHand()

@@ -63,21 +63,21 @@ void Player::SetHand(VectorOfStrAndIntPair HandsIn)
 
 void Player::PrintHand()
 {
-	cout << "Cards in Player hand: ";
-	for (int i = 0; i < Hand.size(); i++)
+	cout << "| Cards in Player hand: ";
+	for (unsigned int i = 0; i < Hand.size(); i++)
 	{
 		cout << Hand[i].first << " " << Hand[i].second << ", ";
 	}
 	cout << endl;
 }
 
-void Player::PrintHandValue()
+void Player::CountAndPrintHandValue()
 {
-	for (int i = 0; i < Hand.size(); i++)
+	for (unsigned int i = 0; i < Hand.size(); i++)
 	{
 		HandValue += Hand[i].second;
 	}
-	cout << "Card value in Player hand: " << HandValue << endl;
+	cout << "| Card value in Player hand: " << HandValue << " |" << endl;
 }
 
 void Player::DeleteHand()

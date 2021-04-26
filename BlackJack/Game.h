@@ -20,6 +20,7 @@ public:
 	void Stand();
 	void DoubleDown();
 	void Surrender();
+	void Sequence();
 	void DealerDecision();
 	void Winner();
 	void Counter();

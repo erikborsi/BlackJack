@@ -4,9 +4,8 @@
 class Dealer
 {
 private:
-	string Name;
-	int Score;
-	int HandValue;
+	string Name{};
+	int Score{}, HandValue{};
 	VectorOfStrAndIntPair Hand;
 public:
 	string GetName();
@@ -18,6 +17,6 @@ public:
 	VectorOfStrAndIntPair GetHand();
 	void SetHand(VectorOfStrAndIntPair HandsIn);
 	void PrintHand();
-	void PrintHandValue();
+	void CountAndPrintHandValue();
 	void DeleteHand();
 };
