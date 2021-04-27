@@ -57,7 +57,7 @@ void Dealer::CountAndPrintHandValue()
 	{
 		HandValue += Hand[i].second;
 	}
-	cout << "| Card value in Dealer hand: " << HandValue << " |" << endl;
+	cout << "| Dealer hand value: " << HandValue << "  |" << endl;
 }
 
 void Dealer::DeleteHand()

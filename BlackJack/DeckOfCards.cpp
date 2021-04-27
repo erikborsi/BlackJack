@@ -8,7 +8,7 @@ StringPointer DeckOfCards::SuitsArray()
 
 IntegerPointer DeckOfCards::NumbersArray()
 {
-	static int NumbersArray[13] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10 };
+	static int NumbersArray[13] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
 	return NumbersArray;
 }
 
@@ -44,3 +44,13 @@ VectorOfStrAndIntPair DeckOfCards::GetCard()
 	Deck.pop_back();
 	return TemporaryVector;
 }
+
+void DeckOfCards::PrintDeck()
+{
+	for (unsigned int i = 0; i < Deck.size(); i++)
+	{
+		cout << Deck[i].first << " " << Deck[i].second << ", ";
+	}
+	cout << endl;
+}
+

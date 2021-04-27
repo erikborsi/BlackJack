@@ -6,7 +6,7 @@ class Dealer
 private:
 	string Name{};
 	int Score{}, HandValue{};
-	VectorOfStrAndIntPair Hand;
+	VectorOfStrAndIntPair Hand{};
 public:
 	string GetName();
 	void SetName(string NameIn);

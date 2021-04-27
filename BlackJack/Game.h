@@ -11,6 +11,7 @@ public:
 	void Menu();
 	void ReadMe();
 	void Setup();
+	void CreateDeckAndShuffle();
 	void Start();
 	void Bet();
 	void Deal();
@@ -24,5 +25,6 @@ public:
 	void DealerDecision();
 	void Winner();
 	void Counter();
+	void DeleteHands();
 	void End();
 };

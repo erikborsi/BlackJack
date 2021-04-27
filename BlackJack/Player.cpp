@@ -77,7 +77,7 @@ void Player::CountAndPrintHandValue()
 	{
 		HandValue += Hand[i].second;
 	}
-	cout << "| Card value in Player hand: " << HandValue << " |" << endl;
+	cout << "| Player hand value: " << HandValue << "  |" << endl;
 }
 
 void Player::DeleteHand()

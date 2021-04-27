@@ -6,7 +6,7 @@ class Player
 private:
 	string Name{};
 	int Score{}, Money{}, Bet{}, HandValue{};
-	VectorOfStrAndIntPair Hand;
+	VectorOfStrAndIntPair Hand{};
 public:
 	string GetName();
 	void SetName(string NameIn);

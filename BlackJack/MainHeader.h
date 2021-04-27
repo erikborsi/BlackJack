@@ -14,4 +14,3 @@ typedef string* StringPointer;
 typedef int* IntegerPointer;
 typedef pair<string, int> StrAndIntPair;
 typedef vector<pair<string, int>> VectorOfStrAndIntPair;
-typedef vector<pair<string, int>>* VectorOfStrAndIntPairPointer;

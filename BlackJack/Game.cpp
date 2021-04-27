@@ -67,13 +67,18 @@ void Game::Setup()
 	cout << "| Your name is: " << player.GetName() << endl;
 	cout << "| Your bank is: " << player.GetMoney() << endl;
 	cout << "--------------------------" << endl;
+	CreateDeckAndShuffle();
+}
+
+void Game::CreateDeckAndShuffle()
+{
+	deck.CreateADeckOfCards();
+	deck.ShuffleTheDeck();
 	Start();
 }
 
 void Game::Start()
 {
-	deck.CreateADeckOfCards();
-	deck.ShuffleTheDeck();
 	Bet();
 	Deal();
 }
@@ -101,8 +106,8 @@ void Game::Deal()
 	cout << "--------------------------" << endl;
 	system("pause");
 	player.SetHand(deck.GetCard());
-	player.SetHand(deck.GetCard());
 	dealer.SetHand(deck.GetCard());
+	player.SetHand(deck.GetCard());
 	dealer.SetHand(deck.GetCard());
 	cin.clear();
 	fflush(stdin);
@@ -194,12 +199,12 @@ void Game::Sequence()
 	Print();
 	Winner();
 	Counter();
-	End();
+	DeleteHands();
 }
 
 void Game::DealerDecision()
 {
-
+	// dealer-asks-for-card-or-not logic
 }
 
 void Game::Winner()
@@ -207,8 +212,11 @@ void Game::Winner()
 	cout << "--------------------------" << endl;
 	cout << "| Winner:                |" << endl;
 	cout << "--------------------------" << endl;
+	player.SetHandValue(0);
 	player.CountAndPrintHandValue();
+	dealer.SetHandValue(0);
 	dealer.CountAndPrintHandValue();
+	system("pause");
 }
 
 void Game::Counter() 
@@ -216,6 +224,14 @@ void Game::Counter()
 	cout << "--------------------------" << endl;
 	cout << "| Counter:               |" << endl;
 	cout << "--------------------------" << endl;
+	system("pause");
+}
+
+void Game::DeleteHands() 
+{
+	player.DeleteHand();
+	dealer.DeleteHand();
+	End();
 }
 
 void Game::End()
@@ -233,6 +249,9 @@ void Game::End()
 	switch (atoi(input.c_str()))
 	{
 	case 1:
+		cout << "--------------------------" << endl;
+		cout << "| NEW DEAL:              |" << endl;
+		cout << "--------------------------" << endl;
 		Start();
 		break;
 	case 2:
