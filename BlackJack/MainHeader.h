@@ -11,6 +11,5 @@
 
 using namespace std;
 typedef string* StringPointer;
-typedef int* IntegerPointer;
-typedef pair<string, int> StrAndIntPair;
-typedef vector<pair<string, int>> VectorOfStrAndIntPair;
+typedef pair<string, string> StrAndStrPair;
+typedef vector<pair<string, string>> VectorOfStrAndStrPair;

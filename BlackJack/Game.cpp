@@ -213,9 +213,11 @@ void Game::Winner()
 	cout << "| Winner:                |" << endl;
 	cout << "--------------------------" << endl;
 	player.SetHandValue(0);
-	player.CountAndPrintHandValue();
+	player.CountHandValue();
+	cout << "Player hand value: " << player.GetHandValue() << endl;
 	dealer.SetHandValue(0);
-	dealer.CountAndPrintHandValue();
+	dealer.CountHandValue();
+	cout << "Dealer hand value: " << dealer.GetHandValue() << endl;
 	system("pause");
 }
 
