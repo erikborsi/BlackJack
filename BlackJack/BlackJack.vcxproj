@@ -141,14 +141,14 @@
   <ItemGroup>
     <ClCompile Include="BlackJack.cpp" />
     <ClCompile Include="Dealer.cpp" />
-    <ClCompile Include="DeckOfCards.cpp" />
+    <ClCompile Include="Deck.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameCharacter.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dealer.h" />
-    <ClInclude Include="DeckOfCards.h" />
+    <ClInclude Include="Deck.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameCharacter.h" />
     <ClInclude Include="MainHeader.h" />

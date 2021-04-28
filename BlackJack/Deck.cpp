@@ -1,18 +1,18 @@
-#include "DeckOfCards.h"
+#include "Deck.h"
 
-StrPtr DeckOfCards::SuitsArray()
+StrPtr Deck::SuitsArray()
 {
 	static string SuitsArray[4] = { "CLUBS", "HEARTS", "SPADES", "DIAMONDS" };
 	return SuitsArray;
 }
 
-StrPtr DeckOfCards::RankArray()
+StrPtr Deck::RankArray()
 {
 	static string RankArray[13] = { "ACE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "JACK", "QUEEN", "KING" };
 	return RankArray;
 }
 
-VecOfStrAndStrPair DeckOfCards::CreateADeckOfCards()
+VecOfStrAndStrPair Deck::CreateDeck()
 {
 	StrPtr suitPointer = SuitsArray();
 	StrPtr rankPointer = RankArray();
@@ -29,13 +29,13 @@ VecOfStrAndStrPair DeckOfCards::CreateADeckOfCards()
 	return Deck;
 }
 
-VecOfStrAndStrPair DeckOfCards::ShuffleTheDeck()
+VecOfStrAndStrPair Deck::ShuffleDeck()
 {
 	random_shuffle(Deck.begin(), Deck.end());
 	return Deck;
 }
 
-VecOfStrAndStrPair DeckOfCards::GetCard()
+VecOfStrAndStrPair Deck::GetCard()
 {
 	VecOfStrAndStrPair TemporaryVector;
 	StrAndStrPair TemporaryCard;
@@ -45,7 +45,7 @@ VecOfStrAndStrPair DeckOfCards::GetCard()
 	return TemporaryVector;
 }
 
-void DeckOfCards::PrintDeck()
+void Deck::PrintDeck()
 {
 	for (unsigned int i = 0; i < Deck.size(); i++)
 	{

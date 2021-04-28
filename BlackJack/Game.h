@@ -2,7 +2,7 @@
 #include "MainHeader.h"
 #include "Player.h"
 #include "Dealer.h"
-#include "DeckOfCards.h"
+#include "Deck.h"
 
 class Game
 {

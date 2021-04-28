@@ -1,15 +1,15 @@
 #pragma once
 #include "MainHeader.h"
 
-class DeckOfCards
+class Deck
 {
 private:
 	VecOfStrAndStrPair Deck;
 	StrPtr SuitsArray();
 	StrPtr RankArray();
 public:
-	VecOfStrAndStrPair CreateADeckOfCards();
-	VecOfStrAndStrPair ShuffleTheDeck();
+	VecOfStrAndStrPair CreateDeck();
+	VecOfStrAndStrPair ShuffleDeck();
 	VecOfStrAndStrPair GetCard();
 	void PrintDeck();
 };

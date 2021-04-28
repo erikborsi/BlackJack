@@ -2,7 +2,7 @@
 
 Player player;
 Dealer dealer;
-DeckOfCards deck;
+Deck deck;
 
 void Game::Title() 
 {
@@ -70,8 +70,8 @@ void Game::Setup()
 
 void Game::CreateDeckAndShuffle()
 {
-	deck.CreateADeckOfCards();
-	deck.ShuffleTheDeck();
+	deck.CreateDeck();
+	deck.ShuffleDeck();
 	Start();
 }
 
