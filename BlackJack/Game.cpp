@@ -46,7 +46,6 @@ void Game::Menu()
 void Game::ReadMe()
 {
 	ifstream RulesOfBlackJack("rulesofblackjack.txt");
-
 	if (RulesOfBlackJack.is_open())
 		cout << RulesOfBlackJack.rdbuf();
 	Menu();
@@ -64,7 +63,7 @@ void Game::Setup()
 	player.SetMoney(3000);
 	cout << "--------------------------" << endl;
 	cout << "| Your name is: " << *player.GetName() << endl;
-	cout << "| Your bank is: " << *player.GetMoney() << endl;
+	cout << "| Your bank is: " << player.GetMoney() << endl;
 	cout << "--------------------------" << endl;
 	CreateDeckAndShuffle();
 }
@@ -87,14 +86,16 @@ void Game::Bet()
 	string bet{};
 	cout << "Bet: ";
 	cin >> bet;
+	
+	// TODO
 
 	cin.clear();
 	fflush(stdin);
 	player.SetBet(atoi(bet.c_str()));
 	player.SetMoney(player.GetMoney() - player.GetBet());
 	cout << "--------------------------" << endl;
-	cout << "| Your bet is: " << *player.GetBet() << endl;
-	cout << "| Your bank is: " << *player.GetMoney() << endl;
+	cout << "| Your bet is: " << player.GetBet() << endl;
+	cout << "| Your bank is: " << player.GetMoney() << endl;
 	cout << "--------------------------" << endl;
 }
 
@@ -184,7 +185,7 @@ void Game::DoubleDown()
 	cout << "| Double Down:           |" << endl;
 	cout << "--------------------------" << endl;
 	player.SetHand(deck.GetCard());
-	player.SetBet(*player.GetBet() + *player.GetBet());
+	player.SetBet(player.GetBet() + player.GetBet());
 	Sequence();
 }
 

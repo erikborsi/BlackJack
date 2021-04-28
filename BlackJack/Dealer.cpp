@@ -2,7 +2,9 @@
 
 void Dealer::Decision()
 {
+	// TODO
 	// if hand has ACE then do count 
+	// 
 	// 
 	// if handvalue is 18 then NOT ask for a card
 	// if handvalue is below 18 then ask for a card

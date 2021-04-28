@@ -1,8 +1,8 @@
 #include "Player.h"
 
-IntPtr Player::GetMoney()
+int Player::GetMoney()
 {
-	return &Money;
+	return Money;
 }
 
 void Player::SetMoney(int MoneyIn)
@@ -10,9 +10,9 @@ void Player::SetMoney(int MoneyIn)
 	Money = MoneyIn;
 }
 
-IntPtr Player::GetBet()
+int Player::GetBet()
 {
-	return &Bet;
+	return Bet;
 }
 
 void Player::SetBet(int BetIn)

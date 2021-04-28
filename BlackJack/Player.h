@@ -7,8 +7,8 @@ class Player : public GameCharacter
 private:
 	int Money{}, Bet{};
 public:
-	IntPtr GetMoney();
+	int GetMoney();
 	void SetMoney(int MoneyIn);
-	IntPtr GetBet();
+	int GetBet();
 	void SetBet(int BetIn);
 };
