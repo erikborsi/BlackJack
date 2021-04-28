@@ -4,12 +4,12 @@
 class DeckOfCards
 {
 private:
-	VectorOfStrAndStrPair Deck;
-	StringPointer SuitsArray();
-	StringPointer RankArray();
+	VecOfStrAndStrPair Deck;
+	StrPtr SuitsArray();
+	StrPtr RankArray();
 public:
-	VectorOfStrAndStrPair CreateADeckOfCards();
-	VectorOfStrAndStrPair ShuffleTheDeck();
-	VectorOfStrAndStrPair GetCard();
+	VecOfStrAndStrPair CreateADeckOfCards();
+	VecOfStrAndStrPair ShuffleTheDeck();
+	VecOfStrAndStrPair GetCard();
 	void PrintDeck();
 };

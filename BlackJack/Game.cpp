@@ -4,7 +4,6 @@ Player player;
 Dealer dealer;
 DeckOfCards deck;
 
-
 void Game::Title() 
 {
 	cout << "--------------------------" << endl;
@@ -64,8 +63,8 @@ void Game::Setup()
 	dealer.SetName("Dealer");
 	player.SetMoney(3000);
 	cout << "--------------------------" << endl;
-	cout << "| Your name is: " << player.GetName() << endl;
-	cout << "| Your bank is: " << player.GetMoney() << endl;
+	cout << "| Your name is: " << *player.GetName() << endl;
+	cout << "| Your bank is: " << *player.GetMoney() << endl;
 	cout << "--------------------------" << endl;
 	CreateDeckAndShuffle();
 }
@@ -88,13 +87,14 @@ void Game::Bet()
 	string bet{};
 	cout << "Bet: ";
 	cin >> bet;
+
 	cin.clear();
 	fflush(stdin);
 	player.SetBet(atoi(bet.c_str()));
 	player.SetMoney(player.GetMoney() - player.GetBet());
 	cout << "--------------------------" << endl;
-	cout << "| Your bet is: " << player.GetBet() << endl;
-	cout << "| Your bank is: " << player.GetMoney() << endl;
+	cout << "| Your bet is: " << *player.GetBet() << endl;
+	cout << "| Your bank is: " << *player.GetMoney() << endl;
 	cout << "--------------------------" << endl;
 }
 
@@ -120,7 +120,9 @@ void Game::Print()
 	cout << "--------------------------" << endl;
 	cout << "| Hands:                 |" << endl;
 	cout << "--------------------------" << endl;
+	cout << "| " << *player.GetName() << "'s hand: ";
 	player.PrintHand();
+	cout << "| " << *dealer.GetName() << "'s hand: ";
 	dealer.PrintHand();
 }
 
@@ -182,6 +184,7 @@ void Game::DoubleDown()
 	cout << "| Double Down:           |" << endl;
 	cout << "--------------------------" << endl;
 	player.SetHand(deck.GetCard());
+	player.SetBet(*player.GetBet() + *player.GetBet());
 	Sequence();
 }
 
@@ -204,7 +207,7 @@ void Game::Sequence()
 
 void Game::DealerDecision()
 {
-	// dealer-asks-for-card-or-not logic
+	dealer.Decision();
 }
 
 void Game::Winner()
@@ -214,10 +217,10 @@ void Game::Winner()
 	cout << "--------------------------" << endl;
 	player.SetHandValue(0);
 	player.CountHandValue();
-	cout << "Player hand value: " << player.GetHandValue() << endl;
+	cout << "| Player hand value: " << *player.GetHandValue() << endl;
 	dealer.SetHandValue(0);
 	dealer.CountHandValue();
-	cout << "Dealer hand value: " << dealer.GetHandValue() << endl;
+	cout << "| Dealer hand value: " << *dealer.GetHandValue() << endl;
 	system("pause");
 }
 

@@ -1,43 +1,43 @@
 #include "DeckOfCards.h"
 
-StringPointer DeckOfCards::SuitsArray()
+StrPtr DeckOfCards::SuitsArray()
 {
 	static string SuitsArray[4] = { "CLUBS", "HEARTS", "SPADES", "DIAMONDS" };
 	return SuitsArray;
 }
 
-StringPointer DeckOfCards::RankArray()
+StrPtr DeckOfCards::RankArray()
 {
-	static string RankArray[13] = { "ACE", "2", "3", "4", "5", "6", "7", "8", "9", "10", "JACK", "QUEEN", "KING" };
+	static string RankArray[13] = { "ACE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "JACK", "QUEEN", "KING" };
 	return RankArray;
 }
 
-VectorOfStrAndStrPair DeckOfCards::CreateADeckOfCards()
+VecOfStrAndStrPair DeckOfCards::CreateADeckOfCards()
 {
-	StringPointer suitPointer = SuitsArray();
-	StringPointer rankPointer = RankArray();
+	StrPtr suitPointer = SuitsArray();
+	StrPtr rankPointer = RankArray();
 
 	for (int i = 0; i < 13; i++)
 	{
 		for (int j = 0; j < 4; j++)
 		{
 			suitPointer[j];
-			Deck.push_back(StrAndStrPair(suitPointer[j], rankPointer[i]));
+			Deck.push_back(StrAndStrPair(rankPointer[i],suitPointer[j]));
 		}
 		rankPointer[i];
 	}
 	return Deck;
 }
 
-VectorOfStrAndStrPair DeckOfCards::ShuffleTheDeck()
+VecOfStrAndStrPair DeckOfCards::ShuffleTheDeck()
 {
 	random_shuffle(Deck.begin(), Deck.end());
 	return Deck;
 }
 
-VectorOfStrAndStrPair DeckOfCards::GetCard()
+VecOfStrAndStrPair DeckOfCards::GetCard()
 {
-	VectorOfStrAndStrPair TemporaryVector;
+	VecOfStrAndStrPair TemporaryVector;
 	StrAndStrPair TemporaryCard;
 	TemporaryCard = Deck.back();
 	TemporaryVector.push_back(TemporaryCard);

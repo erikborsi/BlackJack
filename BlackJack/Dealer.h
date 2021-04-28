@@ -1,22 +1,9 @@
 #pragma once
 #include "MainHeader.h"
+#include "GameCharacter.h"
 
-class Dealer
+class Dealer : public GameCharacter
 {
-private:
-	string Name{};
-	int Score{}, HandValue{};
-	VectorOfStrAndStrPair Hand{};
 public:
-	string GetName();
-	void SetName(string NameIn);
-	int GetScore();
-	void SetScore(int ScoreIn);
-	int GetHandValue();
-	void SetHandValue(int ValueIn);
-	VectorOfStrAndStrPair GetHand();
-	void SetHand(VectorOfStrAndStrPair HandsIn);
-	void PrintHand();
-	void CountHandValue();
-	void DeleteHand();
+	void Decision();
 };
