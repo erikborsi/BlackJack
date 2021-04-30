@@ -6,11 +6,13 @@
 
 class Game
 {
+private:
+	int TwentyOne = 21;
 public:
 	void Title();
 	void Menu();
 	void ReadMe();
-	void Setup();
+	void Name();
 	void CreateDeckAndShuffle();
 	void Start();
 	void Bet();
@@ -23,8 +25,9 @@ public:
 	void Surrender();
 	void Sequence();
 	void DealerDecision();
-	void Winner();
-	void Counter();
+	void WinnerAndCounter();
+	int GetTwentyOne();
+	void Money();
 	void DeleteHands();
 	void End();
 };
