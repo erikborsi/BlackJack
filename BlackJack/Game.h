@@ -1,5 +1,4 @@
 #pragma once
-#include "MainHeader.h"
 #include "Player.h"
 #include "Dealer.h"
 #include "Deck.h"
@@ -13,8 +12,8 @@ public:
 	void Menu();
 	void ReadMe();
 	void Name();
-	void CreateDeckAndShuffle();
 	void Start();
+	void DeckAndShuffle();
 	void Bet();
 	void Deal();
 	void Print();
@@ -26,6 +25,9 @@ public:
 	void Sequence();
 	void DealerDecision();
 	void WinnerAndCounter();
+	void PlayerWin();
+	void DealerWin();
+	void Push();
 	int GetTwentyOne();
 	void Money();
 	void DeleteHands();

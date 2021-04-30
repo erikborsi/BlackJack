@@ -52,6 +52,9 @@ void GameCharacter::PrintHand()
 
 void GameCharacter::CountHandValue()
 {
+
+	// TODO - 21 BLACKJACK WHEN ACE AND KING OR ACE AND JACK OR ACE AND QUEEN OR ACE AND TEN
+
 	int value{};
 	for (unsigned int i = 0; i < Hand.size(); i++)
 	{

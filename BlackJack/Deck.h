@@ -11,5 +11,5 @@ public:
 	VecOfStrAndStrPair CreateDeck();
 	VecOfStrAndStrPair ShuffleDeck();
 	VecOfStrAndStrPair GetCard();
-	void PrintDeck();
+	VecOfStrAndStrPair GetDeck();
 };

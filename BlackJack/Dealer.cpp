@@ -1,19 +1,16 @@
 #include "Dealer.h"
 
-void Dealer::Decision()
+bool Dealer::Decision()
 {
-	// TODO
-	// if hand has ACE then do count 
-	// 
-	// 
-	// if handvalue is 18 then NOT ask for a card
-	// if handvalue is below 18 then ask for a card
-
 	Dealer::SetHandValue(0);
 	Dealer::CountHandValue();
-	if (HandValue )
+	if (HandValue <= 17)
 	{
-
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 	Dealer::SetHandValue(0);
 }

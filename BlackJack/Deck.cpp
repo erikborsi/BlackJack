@@ -45,12 +45,7 @@ VecOfStrAndStrPair Deck::GetCard()
 	return TemporaryVector;
 }
 
-void Deck::PrintDeck()
+VecOfStrAndStrPair Deck::GetDeck()
 {
-	for (unsigned int i = 0; i < Deck.size(); i++)
-	{
-		cout << Deck[i].first << " " << Deck[i].second << ", ";
-	}
-	cout << endl;
+	return Deck;
 }
-
