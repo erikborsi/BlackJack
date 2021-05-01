@@ -1,6 +1,35 @@
------------------------------------------------------------
-|            Rules of the BlackJack Card Game             |
-|                                                         |
-| The rules can be found on the link below:               |
-| https://www.pokerstarscasino.com/games/blackjack/rules/ |
------------------------------------------------------------
+--------------------------------------------------------------
+|            Rules of the BlackJack Card Game                |
+|                                                            |
+| The rules can be found on the link below:                  |
+| https://www.gamblingsites.org/casino/blackjack/pokerstars/ |
+|                                                            |
+| BlackJack has a lot of different versions. This game is    |
+| NOT authentic to any version.                              |
+|                                                            |
+| The Player has a bank of 3000 credits at the beginnning.   |
+| If the Player's bank is empty the Player loses a score and |
+| the bank is set to 3000.                                   |
+|                                                            |
+| The Player have four options after the initial Deal:       |
+|                                                            |
+|   Hit: the Player can hit up to five cards.                |
+|                                                            |
+|   Stand: the Player can stand with the cards in the hand.  |
+|                                                            |
+|   Double Down: the Player can ask for one more card        |
+|   and double the bet. Works on any number of cards.        |
+|                                                            |
+|   Surrender: the Player can surrender and get back the     |
+|   half of the bet.                                         |
+|                                                            |
+| The Dealer ALWAYS hits on 17!                              |
+|                                                            |
+| The game is played with six decks. If the deck is below    |
+| ten cards, the leftover cards are deleted and new six      |
+| decks are added and shuffled.                              |
+|                                                            |
+| !!! Split and Insurance are NOT developed in the    !!!    |
+| !!! current version!                                !!!    |
+|                                                            |
+--------------------------------------------------------------

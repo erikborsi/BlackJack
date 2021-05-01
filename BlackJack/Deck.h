@@ -7,9 +7,11 @@ private:
 	VecOfStrAndStrPair Deck;
 	StrPtr SuitsArray();
 	StrPtr RankArray();
-public:
 	VecOfStrAndStrPair CreateDeck();
+public:
+	void SixDeck();
 	VecOfStrAndStrPair ShuffleDeck();
 	VecOfStrAndStrPair GetCard();
 	VecOfStrAndStrPair GetDeck();
+	void ClearDeck();
 };

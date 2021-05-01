@@ -9,18 +9,20 @@ void Game::Title()
 	cout << "--------------------------" << endl;
 	cout << "|  BlackJack Card Game   |" << endl;
 	cout << "|  ";
-	for (int i = 0; i < 2; i++)
-	{
-		cout << char(3) << char(4) << char(5) << char(6);
-	}
+	Characters();
 	cout << "   ";
-	for (int i = 0; i < 2; i++)
-	{
-		cout << char(3) << char(4) << char(5) << char(6);
-	}
+	Characters();
 	cout << "   |" << endl;
 	cout << "--------------------------" << endl;
 	Menu();
+}
+
+void Game::Characters()
+{
+	for (int i = 0; i < 2; i++)
+	{
+		cout << char(3) << char(4) << char(5) << char(6);
+	}
 }
 
 void Game::Menu()
@@ -90,7 +92,8 @@ void Game::DeckAndShuffle()
 {
 	while (deck.GetDeck().size() < 10)
 	{
-		deck.CreateDeck();
+		deck.ClearDeck();
+		deck.SixDeck();
 		deck.ShuffleDeck();
 	}
 }
@@ -110,10 +113,8 @@ void Game::Bet()
 	cin.clear();
 	fflush(stdin);
 	player.SetBet(atoi(bet.c_str()));
-	player.SetMoney(player.GetMoney() - player.GetBet());
 	cout << "--------------------------" << endl;
 	cout << "| Your bet is: " << player.GetBet() << endl;
-	cout << "| Your bank is: " << player.GetMoney() << endl;
 	cout << "--------------------------" << endl;
 }
 
@@ -130,7 +131,7 @@ void Game::Deal()
 	Options();
 }
 
-void Game::Print()
+void Game::PrintHands()
 {
 	cout << "--------------------------" << endl;
 	cout << "| Hands:                 |" << endl;
@@ -139,6 +140,7 @@ void Game::Print()
 	player.PrintHand();
 	cout << "| " << *dealer.GetName() << "'s hand: ";
 	dealer.PrintHand();
+	cout << "--------------------------" << endl;
 }
 
 void Game::Options()
@@ -146,7 +148,7 @@ void Game::Options()
 	string input{};
 	while (player.GetHand().size() <= 5)
 	{
-		Print();
+		PrintHands();
 		cout << "--------------------------" << endl;
 		cout << "| Options:               |" << endl;
 		cout << "| 1. Hit                 |" << endl;
@@ -188,7 +190,6 @@ void Game::Hit()
 	cout << "--------------------------" << endl;
 	player.SetHand(deck.GetCard());
 	Options();
-	DeckAndShuffle();
 }
 
 void Game::Stand()
@@ -207,7 +208,6 @@ void Game::DoubleDown()
 	player.SetHand(deck.GetCard());
 	player.SetBet(player.GetBet() + player.GetBet());
 	Sequence();
-	DeckAndShuffle();
 }
 
 void Game::Surrender()
@@ -215,27 +215,29 @@ void Game::Surrender()
 	cout << "--------------------------" << endl;
 	cout << "| Surrender:             |" << endl;
 	cout << "--------------------------" << endl;
-
-	//TODO SURRENDER OPTION
-
-	Sequence();
+	player.SetBet(player.GetBet() / 2);
+	player.SetMoney(player.GetMoney() + player.GetBet());
+	player.SetScore(*player.GetScore() - 1);
+	dealer.SetScore(*dealer.GetScore() + 1);
+	Money();
+	DeleteHands();
 }
 
 void Game::Sequence()
 {
 	DealerDecision();
-	Print();
+	PrintHands();
 	WinnerAndCounter();
+	Money();
 	DeleteHands();
 }
 
 void Game::DealerDecision()
 {
-	while (dealer.Decision())
+	while (dealer.Decision() && dealer.GetHand().size() <= 5)
 	{
 		dealer.SetHand(deck.GetCard());
 	}
-	DeckAndShuffle();
 }
 
 void Game::WinnerAndCounter()
@@ -248,9 +250,11 @@ void Game::WinnerAndCounter()
 	player.CountHandValue();
 	dealer.SetHandValue(0);
 	dealer.CountHandValue();
+	cout << "--------------------------" << endl;
 	cout << "| Player hand value: " << *player.GetHandValue() << endl;
 	cout << "| Dealer hand value: " << *dealer.GetHandValue() << endl;
-	if (*player.GetHandValue() > GetTwentyOne())
+	cout << "--------------------------" << endl;
+	if (*player.GetHandValue() > *GetTwentyOne())
 	{
 		DealerWin();
 	}
@@ -258,7 +262,7 @@ void Game::WinnerAndCounter()
 	{
 		Push();
 	}
-	else if (*dealer.GetHandValue() > GetTwentyOne())
+	else if (*dealer.GetHandValue() > *GetTwentyOne())
 	{
 		PlayerWin();
 	}
@@ -275,14 +279,13 @@ void Game::WinnerAndCounter()
 		PlayerWin();
 	}
 	system("pause");
-	Money();
 }
 
 void Game::PlayerWin()
 {
 	player.SetScore(*player.GetScore() + 1);
 	dealer.SetScore(*dealer.GetScore() - 1);
-	player.SetMoney(player.GetMoney() + player.GetBet() + player.GetBet());
+	player.SetMoney(player.GetMoney() + player.GetBet());
 	cout << "--------------------------" << endl;
 	cout << "| " << *player.GetName() << " win" << endl;
 	cout << "| " << *dealer.GetName() << " lost" << endl;
@@ -293,6 +296,7 @@ void Game::DealerWin()
 {
 	player.SetScore(*player.GetScore() - 1);
 	dealer.SetScore(*dealer.GetScore() + 1);
+	player.SetMoney(player.GetMoney() - player.GetBet());
 	cout << "--------------------------" << endl;
 	cout << "| " << *dealer.GetName() << " win" << endl;
 	cout << "| " << *player.GetName() << " lost" << endl;
@@ -309,9 +313,9 @@ void Game::Push()
 	cout << "--------------------------" << endl;
 }
 
-int Game::GetTwentyOne()
+IntPtr Game::GetTwentyOne()
 {
-	return TwentyOne;
+	return &TwentyOne;
 }
 
 void Game::Money() 
@@ -337,9 +341,21 @@ void Game::DeleteHands()
 	End();
 }
 
+void Game::PrintScores()
+{
+	cout << "--------------------------" << endl;
+	cout << "| Scores:                |" << endl;
+	cout << "--------------------------" << endl;
+	cout << "| " << *player.GetName() << "'s score: " << *player.GetScore() << endl;
+	cout << "| " << *dealer.GetName() << "'s score: " << *dealer.GetScore() << endl;
+	cout << "--------------------------" << endl;
+	system("pause");
+}
+
 void Game::End()
 {
 	string input{};
+	PrintScores();
 	cout << "--------------------------" << endl;
 	cout << "--------------------------" << endl;
 	cout << "| End:                   |" << endl;
@@ -353,7 +369,6 @@ void Game::End()
 	switch (atoi(input.c_str()))
 	{
 	case 1:
-		cout << "--------------------------" << endl;
 		cout << "--------------------------" << endl;
 		cout << "| NEW DEAL:              |" << endl;
 		cout << "--------------------------" << endl;

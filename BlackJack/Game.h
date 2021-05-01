@@ -9,6 +9,7 @@ private:
 	int TwentyOne = 21;
 public:
 	void Title();
+	void Characters();
 	void Menu();
 	void ReadMe();
 	void Name();
@@ -16,7 +17,7 @@ public:
 	void DeckAndShuffle();
 	void Bet();
 	void Deal();
-	void Print();
+	void PrintHands();
 	void Options();
 	void Hit();
 	void Stand();
@@ -28,8 +29,9 @@ public:
 	void PlayerWin();
 	void DealerWin();
 	void Push();
-	int GetTwentyOne();
+	IntPtr GetTwentyOne();
 	void Money();
 	void DeleteHands();
+	void PrintScores();
 	void End();
 };

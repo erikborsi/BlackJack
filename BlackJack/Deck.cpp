@@ -29,6 +29,14 @@ VecOfStrAndStrPair Deck::CreateDeck()
 	return Deck;
 }
 
+void Deck::SixDeck()
+{
+	for (int i = 0; i <= 5; i++)
+	{
+		CreateDeck();
+	}
+}
+
 VecOfStrAndStrPair Deck::ShuffleDeck()
 {
 	random_shuffle(Deck.begin(), Deck.end());
@@ -48,4 +56,9 @@ VecOfStrAndStrPair Deck::GetCard()
 VecOfStrAndStrPair Deck::GetDeck()
 {
 	return Deck;
+}
+
+void Deck::ClearDeck()
+{	
+	Deck.clear();
 }
