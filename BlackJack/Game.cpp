@@ -128,6 +128,34 @@ void Game::Deal()
 	player.SetHand(deck.GetCard());
 	dealer.SetHand(deck.GetCard());
 	system("pause");
+	if (player.BlackJack() && dealer.BlackJack())
+	{
+		PrintHands();
+		cout << "--------------------------" << endl;
+		cout << "| TWO BLACKJACKS!        |" << endl;
+		cout << "| NO WINNER!             |" << endl;
+		cout << "--------------------------" << endl;
+		system("pause");
+		Push();
+	}
+	if (player.BlackJack())
+	{
+		PrintHands();
+		cout << "--------------------------" << endl;
+		cout << "| " << *player.GetName() << " GOT A BLACKJACK!" << endl;
+		cout << "--------------------------" << endl;
+		system("pause");
+		PlayerWin();
+	}
+	if (dealer.BlackJack())
+	{
+		PrintHands();
+		cout << "--------------------------" << endl;
+		cout << "| " << *dealer.GetName() << " GOT A BLACKJACK!" << endl;
+		cout << "--------------------------" << endl;
+		system("pause");
+		Push();
+	}
 	Options();
 }
 
@@ -146,7 +174,9 @@ void Game::PrintHands()
 void Game::Options()
 {
 	string input{};
-	while (player.GetHand().size() <= 5)
+	player.SetHandValue(0);
+	player.CountHandValue();
+	while (player.GetHand().size() <= 5 && *player.GetHandValue() <= *GetTwentyOne())
 	{
 		PrintHands();
 		cout << "--------------------------" << endl;
@@ -180,6 +210,7 @@ void Game::Options()
 			break;
 		}
 	}
+	player.SetHandValue(0);
 	Sequence();
 }
 
@@ -217,7 +248,6 @@ void Game::Surrender()
 	cout << "--------------------------" << endl;
 	player.SetBet(player.GetBet() / 2);
 	player.SetMoney(player.GetMoney() + player.GetBet());
-	player.SetScore(*player.GetScore() - 1);
 	dealer.SetScore(*dealer.GetScore() + 1);
 	Money();
 	DeleteHands();
@@ -284,23 +314,25 @@ void Game::WinnerAndCounter()
 void Game::PlayerWin()
 {
 	player.SetScore(*player.GetScore() + 1);
-	dealer.SetScore(*dealer.GetScore() - 1);
 	player.SetMoney(player.GetMoney() + player.GetBet());
 	cout << "--------------------------" << endl;
 	cout << "| " << *player.GetName() << " win" << endl;
 	cout << "| " << *dealer.GetName() << " lost" << endl;
 	cout << "--------------------------" << endl;
+	Money();
+	DeleteHands();
 }
 
 void Game::DealerWin()
 {
-	player.SetScore(*player.GetScore() - 1);
 	dealer.SetScore(*dealer.GetScore() + 1);
 	player.SetMoney(player.GetMoney() - player.GetBet());
 	cout << "--------------------------" << endl;
 	cout << "| " << *dealer.GetName() << " win" << endl;
 	cout << "| " << *player.GetName() << " lost" << endl;
 	cout << "--------------------------" << endl;
+	Money();
+	DeleteHands();
 }
 
 void Game::Push()
@@ -311,6 +343,8 @@ void Game::Push()
 	cout << "--------------------------" << endl;
 	cout << "| PUSH - NEITHER WINS     |" << endl;
 	cout << "--------------------------" << endl;
+	Money();
+	DeleteHands();
 }
 
 IntPtr Game::GetTwentyOne()
@@ -323,7 +357,6 @@ void Game::Money()
 	if (player.GetMoney() <= 0)
 	{
 		player.SetMoney(3000);
-		player.SetScore(*player.GetScore() - 1);
 		dealer.SetScore(*dealer.GetScore() + 1);
 		cout << "--------------------------" << endl;
 		cout << "| Your bank is empty!    |" << endl;

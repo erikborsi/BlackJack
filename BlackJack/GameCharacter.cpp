@@ -52,9 +52,6 @@ void GameCharacter::PrintHand()
 
 void GameCharacter::CountHandValue()
 {
-
-	// TODO - 21 BLACKJACK WHEN ACE AND KING OR ACE AND JACK OR ACE AND QUEEN OR ACE AND TEN
-
 	int value{};
 	for (unsigned int i = 0; i < Hand.size(); i++)
 	{
@@ -117,4 +114,79 @@ void GameCharacter::CountHandValue()
 void GameCharacter::DeleteHand()
 {
 	Hand.clear();
+}
+
+bool GameCharacter::BlackJack()
+{
+	for (unsigned int i = 0; i < Hand.size(); i++)
+	{
+		if (Hand[i].first == "ACE")
+		{
+			for (unsigned int i = 0; i < Hand.size(); i++)
+			{
+				if (Hand[i].first == "TEN")
+				{
+					return true;
+				}
+				if (Hand[i].first == "JACK")
+				{
+					return true;
+				}
+				if (Hand[i].first == "QUEEN")
+				{
+					return true;
+				}
+				if (Hand[i].first == "KING")
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		if (Hand[i].first == "TEN")
+		{
+			for (unsigned int i = 0; i < Hand.size(); i++)
+			{
+				if (Hand[i].first == "ACE")
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		if (Hand[i].first == "JACK")
+		{
+			for (unsigned int i = 0; i < Hand.size(); i++)
+			{
+				if (Hand[i].first == "ACE")
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		if (Hand[i].first == "QUEEN")
+		{
+			for (unsigned int i = 0; i < Hand.size(); i++)
+			{
+				if (Hand[i].first == "ACE")
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		if (Hand[i].first == "KING")
+		{
+			for (unsigned int i = 0; i < Hand.size(); i++)
+			{
+				if (Hand[i].first == "ACE")
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+	}
+	return false;
 }
