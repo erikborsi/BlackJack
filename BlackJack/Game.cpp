@@ -276,7 +276,6 @@ void Game::DealerDecision()
 
 void Game::WinnerAndCounter()
 {
-	int value{};
 	cout << "--------------------------" << endl;
 	cout << "| WINNER:                |" << endl;
 	cout << "--------------------------" << endl;
