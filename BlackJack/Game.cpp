@@ -7,7 +7,7 @@ Deck deck;
 void Game::Title() 
 {
 	cout << "--------------------------" << endl;
-	cout << "|  BlackJack Card Game   |" << endl;
+	cout << "|  BLACKJACK CARD GAME   |" << endl;
 	cout << "|  ";
 	Characters();
 	cout << "   ";
@@ -29,12 +29,12 @@ void Game::Menu()
 {
 	string input{};
 	cout << "--------------------------" << endl;
-	cout << "| Menu                   |" << endl;
-	cout << "| 1. Start game          |" << endl;
-	cout << "| 2. Read about the game |" << endl;
-	cout << "| 3. Quit game           |" << endl;
+	cout << "| MENU                   |" << endl;
+	cout << "| 1. START               |" << endl;
+	cout << "| 2. HOW TO PLAY         |" << endl;
+	cout << "| 3. QUIT                |" << endl;
 	cout << "--------------------------" << endl;
-	cout << "Input: ";
+	cout << "INPUT: ";
 	cin >> input;
 	cin.clear();
 	fflush(stdin);
@@ -50,7 +50,8 @@ void Game::Menu()
 		exit(1);
 		break;
 	default:
-		cout << "Wrong input!" << endl;
+		cout << "WRONG INPUT!" << endl;
+		system("pause");
 		Menu();
 		break;
 	}
@@ -61,22 +62,23 @@ void Game::ReadMe()
 	ifstream RulesOfBlackJack("rulesofblackjack.txt");
 	if (RulesOfBlackJack.is_open())
 		cout << RulesOfBlackJack.rdbuf();
+	system("pause");
 	Menu();
 }
 
 void Game::Name()
 {
 	string name;
-	cout << "Name: ";
+	cout << "NAME: ";
 	cin >> name;
 	cin.clear();
 	fflush(stdin);
 	player.SetName(name);
-	dealer.SetName("Dealer");
+	dealer.SetName("DEALER");
 	player.SetMoney(3000);
 	cout << "--------------------------" << endl;
-	cout << "| Your name is: " << *player.GetName() << endl;
-	cout << "| Your bank is: " << player.GetMoney() << endl;
+	cout << "| YOUR NAME IS: " << *player.GetName() << endl;
+	cout << "| YOUR BANK IS: " << *player.GetMoney() << endl;
 	cout << "--------------------------" << endl;
 	Start();
 }
@@ -101,27 +103,27 @@ void Game::DeckAndShuffle()
 void Game::Bet() 
 {
 	string bet{};
-	cout << "Bet: ";
+	cout << "BET: ";
 	cin >> bet;
-	if (atoi(bet.c_str()) > player.GetMoney() || atoi(bet.c_str()) <= 0)
+	if (atoi(bet.c_str()) > *player.GetMoney() || atoi(bet.c_str()) <= 0)
 	{
-		cout << "| Too high or too low    |" << endl;
-		cout << "| Your bank is: " << player.GetMoney() << endl;
-		cout << "Bet: ";
+		cout << "| TOO HIGH OR TOO LOW    |" << endl;
+		cout << "| YOUR BANK IS: " << *player.GetMoney() << endl;
+		cout << "BET: ";
 		cin >> bet;
 	}
 	cin.clear();
 	fflush(stdin);
 	player.SetBet(atoi(bet.c_str()));
 	cout << "--------------------------" << endl;
-	cout << "| Your bet is: " << player.GetBet() << endl;
+	cout << "| YOUR BET IS: " << *player.GetBet() << endl;
 	cout << "--------------------------" << endl;
 }
 
 void Game::Deal()
 {
 	cout << "--------------------------" << endl;
-	cout << "| Deal:                  |" << endl;
+	cout << "| DEAL:                  |" << endl;
 	cout << "--------------------------" << endl;
 	player.SetHand(deck.GetCard());
 	dealer.SetHand(deck.GetCard());
@@ -162,11 +164,11 @@ void Game::Deal()
 void Game::PrintHands()
 {
 	cout << "--------------------------" << endl;
-	cout << "| Hands:                 |" << endl;
+	cout << "| HANDS:                 |" << endl;
 	cout << "--------------------------" << endl;
-	cout << "| " << *player.GetName() << "'s hand: ";
+	cout << "| " << *player.GetName() << "'S HAND: ";
 	player.PrintHand();
-	cout << "| " << *dealer.GetName() << "'s hand: ";
+	cout << "| " << *dealer.GetName() << "'S HAND: ";
 	dealer.PrintHand();
 	cout << "--------------------------" << endl;
 }
@@ -180,13 +182,13 @@ void Game::Options()
 	{
 		PrintHands();
 		cout << "--------------------------" << endl;
-		cout << "| Options:               |" << endl;
-		cout << "| 1. Hit                 |" << endl;
-		cout << "| 2. Stand               |" << endl;
-		cout << "| 3. Double Down         |" << endl;
-		cout << "| 4. Surrender           |" << endl;
+		cout << "| OPTIONS:               |" << endl;
+		cout << "| 1. HIT                 |" << endl;
+		cout << "| 2. STAND               |" << endl;
+		cout << "| 3. DOUBLE DOWN         |" << endl;
+		cout << "| 4. SURRENDER           |" << endl;
 		cout << "--------------------------" << endl;
-		cout << "Input: ";
+		cout << "INPUT: ";
 		cin >> input;
 		cin.clear();
 		fflush(stdin);
@@ -205,7 +207,8 @@ void Game::Options()
 			Surrender();
 			break;
 		default:
-			cout << "Wrong input!" << endl;
+			cout << "WRONG INPUT!" << endl;
+			system("pause");
 			Options();
 			break;
 		}
@@ -217,7 +220,7 @@ void Game::Options()
 void Game::Hit()
 {
 	cout << "--------------------------" << endl;
-	cout << "| Hit:                   |" << endl;
+	cout << "| HIT:                   |" << endl;
 	cout << "--------------------------" << endl;
 	player.SetHand(deck.GetCard());
 	Options();
@@ -226,7 +229,7 @@ void Game::Hit()
 void Game::Stand()
 {
 	cout << "--------------------------" << endl;
-	cout << "| Stand:                 |" << endl;
+	cout << "| STAND:                 |" << endl;
 	cout << "--------------------------" << endl;
 	Sequence();
 }
@@ -234,20 +237,21 @@ void Game::Stand()
 void Game::DoubleDown()
 {
 	cout << "--------------------------" << endl;
-	cout << "| Double Down:           |" << endl;
+	cout << "| DOUBLE DOWN:           |" << endl;
 	cout << "--------------------------" << endl;
 	player.SetHand(deck.GetCard());
-	player.SetBet(player.GetBet() + player.GetBet());
+	// !!! BUG !!!
+	player.SetBet(*player.GetBet() + *player.GetBet());
 	Sequence();
 }
 
 void Game::Surrender()
 {
 	cout << "--------------------------" << endl;
-	cout << "| Surrender:             |" << endl;
+	cout << "| SURRENDER:             |" << endl;
 	cout << "--------------------------" << endl;
-	player.SetBet(player.GetBet() / 2);
-	player.SetMoney(player.GetMoney() + player.GetBet());
+	player.SetBet(*player.GetBet() / 2);
+	player.SetMoney(*player.GetMoney() + *player.GetBet());
 	dealer.SetScore(*dealer.GetScore() + 1);
 	Money();
 	DeleteHands();
@@ -274,15 +278,15 @@ void Game::WinnerAndCounter()
 {
 	int value{};
 	cout << "--------------------------" << endl;
-	cout << "| Winner:                |" << endl;
+	cout << "| WINNER:                |" << endl;
 	cout << "--------------------------" << endl;
 	player.SetHandValue(0);
 	player.CountHandValue();
 	dealer.SetHandValue(0);
 	dealer.CountHandValue();
 	cout << "--------------------------" << endl;
-	cout << "| Player hand value: " << *player.GetHandValue() << endl;
-	cout << "| Dealer hand value: " << *dealer.GetHandValue() << endl;
+	cout << "| PLAYER HAND VALUE: " << *player.GetHandValue() << endl;
+	cout << "| DEALER HAND VALUE: " << *dealer.GetHandValue() << endl;
 	cout << "--------------------------" << endl;
 	if (*player.GetHandValue() > *GetTwentyOne())
 	{
@@ -308,17 +312,17 @@ void Game::WinnerAndCounter()
 	{
 		PlayerWin();
 	}
-	system("pause");
 }
 
 void Game::PlayerWin()
 {
 	player.SetScore(*player.GetScore() + 1);
-	player.SetMoney(player.GetMoney() + player.GetBet());
+	player.SetMoney(*player.GetMoney() + *player.GetBet());
 	cout << "--------------------------" << endl;
-	cout << "| " << *player.GetName() << " win" << endl;
-	cout << "| " << *dealer.GetName() << " lost" << endl;
+	cout << "| " << *player.GetName() << " WIN" << endl;
+	cout << "| " << *dealer.GetName() << " LOST" << endl;
 	cout << "--------------------------" << endl;
+	system("pause");
 	Money();
 	DeleteHands();
 }
@@ -326,11 +330,12 @@ void Game::PlayerWin()
 void Game::DealerWin()
 {
 	dealer.SetScore(*dealer.GetScore() + 1);
-	player.SetMoney(player.GetMoney() - player.GetBet());
+	player.SetMoney(*player.GetMoney() - *player.GetBet());
 	cout << "--------------------------" << endl;
-	cout << "| " << *dealer.GetName() << " win" << endl;
-	cout << "| " << *player.GetName() << " lost" << endl;
+	cout << "| " << *dealer.GetName() << " WIN" << endl;
+	cout << "| " << *player.GetName() << " LOST" << endl;
 	cout << "--------------------------" << endl;
+	system("pause");
 	Money();
 	DeleteHands();
 }
@@ -339,10 +344,11 @@ void Game::Push()
 {
 	player.SetScore(*player.GetScore());
 	dealer.SetScore(*dealer.GetScore());
-	player.SetMoney(player.GetMoney() + player.GetBet());
+	player.SetMoney(*player.GetMoney());
 	cout << "--------------------------" << endl;
 	cout << "| PUSH - NEITHER WINS     |" << endl;
 	cout << "--------------------------" << endl;
+	system("pause");
 	Money();
 	DeleteHands();
 }
@@ -354,14 +360,14 @@ IntPtr Game::GetTwentyOne()
 
 void Game::Money() 
 {
-	if (player.GetMoney() <= 0)
+	if (*player.GetMoney() <= 0)
 	{
 		player.SetMoney(3000);
 		dealer.SetScore(*dealer.GetScore() + 1);
 		cout << "--------------------------" << endl;
-		cout << "| Your bank is empty!    |" << endl;
-		cout << "| Dealer got one score!  |" << endl;
-		cout << "| Your new bank is: " << player.GetMoney() << endl;
+		cout << "| YOUR BANK IS EMPTY!    |" << endl;
+		cout << "| DEALER GOT A SCORE!    |" << endl;
+		cout << "| YOUR NEW BANK IS: " << *player.GetMoney() << endl;
 		cout << "--------------------------" << endl;
 		system("pause");
 	}
@@ -371,16 +377,17 @@ void Game::DeleteHands()
 {
 	player.DeleteHand();
 	dealer.DeleteHand();
+	PrintScores();
 	End();
 }
 
 void Game::PrintScores()
 {
 	cout << "--------------------------" << endl;
-	cout << "| Scores:                |" << endl;
+	cout << "| SCORES:                |" << endl;
 	cout << "--------------------------" << endl;
-	cout << "| " << *player.GetName() << "'s score: " << *player.GetScore() << endl;
-	cout << "| " << *dealer.GetName() << "'s score: " << *dealer.GetScore() << endl;
+	cout << "| " << *player.GetName() << "'S SCORE: " << *player.GetScore() << endl;
+	cout << "| " << *dealer.GetName() << "'S SCORE: " << *dealer.GetScore() << endl;
 	cout << "--------------------------" << endl;
 	system("pause");
 }
@@ -388,14 +395,13 @@ void Game::PrintScores()
 void Game::End()
 {
 	string input{};
-	PrintScores();
 	cout << "--------------------------" << endl;
 	cout << "--------------------------" << endl;
-	cout << "| End:                   |" << endl;
-	cout << "| 1. New Deal            |" << endl;
-	cout << "| 2. Menu                |" << endl;
+	cout << "| END:                   |" << endl;
+	cout << "| 1. NEW DEAL            |" << endl;
+	cout << "| 2. MENU                |" << endl;
 	cout << "--------------------------" << endl;
-	cout << "Input: ";
+	cout << "INPUT: ";
 	cin >> input;
 	cin.clear();
 	fflush(stdin);
@@ -411,7 +417,8 @@ void Game::End()
 		Menu();
 		break;
 	default:
-		cout << "Wrong input!" << endl;
+		cout << "WRONG INPUT!" << endl;
+		system("pause");
 		End();
 		break;
 	}
