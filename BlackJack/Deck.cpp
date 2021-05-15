@@ -50,9 +50,9 @@ VecOfStrAndStrPair Deck::GetCard()
 {
 	VecOfStrAndStrPair TemporaryVector;
 	StrAndStrPair TemporaryCard;
-	TemporaryCard = Deck.back();
+	TemporaryCard = Deck.front();
 	TemporaryVector.push_back(TemporaryCard);
-	Deck.pop_back();
+	Deck.erase(Deck.begin());
 	return TemporaryVector;
 }
 

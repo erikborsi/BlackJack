@@ -23,6 +23,10 @@ public:
 	void Stand();
 	void DoubleDown();
 	void Surrender();
+
+	void Split();
+	void Insurance();
+
 	void Sequence();
 	void DealerDecision();
 	void WinnerAndCounter();

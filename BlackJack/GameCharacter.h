@@ -3,6 +3,10 @@
 
 class GameCharacter 
 {
+private:
+	GameCharacter() {};
+	friend class Player;
+	friend class Dealer;
 protected:
 	string Name{};
 	int Score{}, HandValue{};

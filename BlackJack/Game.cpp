@@ -61,7 +61,7 @@ void Game::ReadMe()
 {
 	ifstream RulesOfBlackJack("rulesofblackjack.txt");
 	if (RulesOfBlackJack.is_open())
-		cout << RulesOfBlackJack.rdbuf();
+		cout << RulesOfBlackJack.rdbuf() << endl;
 	system("pause");
 	Menu();
 }
@@ -178,7 +178,7 @@ void Game::Options()
 	string input{};
 	player.SetHandValue(0);
 	player.CountHandValue();
-	while (player.GetHand().size() <= 5 && *player.GetHandValue() <= *GetTwentyOne())
+	while (player.GetHand().size() <= 5 && *player.GetHandValue() < *GetTwentyOne())
 	{
 		PrintHands();
 		cout << "--------------------------" << endl;
@@ -241,7 +241,7 @@ void Game::DoubleDown()
 	cout << "--------------------------" << endl;
 	player.SetHand(deck.GetCard());
 	// !!! BUG !!!
-	player.SetBet(*player.GetBet() + *player.GetBet());
+	player.SetBet(*player.GetBet() * 2);
 	Sequence();
 }
 
@@ -257,6 +257,16 @@ void Game::Surrender()
 	DeleteHands();
 }
 
+void Game::Split()
+{
+	//TODO
+}
+
+void Game::Insurance()
+{
+	//TODO
+}
+
 void Game::Sequence()
 {
 	DealerDecision();
@@ -268,7 +278,7 @@ void Game::Sequence()
 
 void Game::DealerDecision()
 {
-	while (dealer.Decision() && dealer.GetHand().size() <= 5)
+	while (dealer.Decision() && dealer.GetHand().size() < 5)
 	{
 		dealer.SetHand(deck.GetCard());
 	}
